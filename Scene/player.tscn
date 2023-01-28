@@ -1,6 +1,4 @@
-[gd_scene load_steps=4 format=3 uid="uid://bxi0j2nlnyu1t"]
-
-[ext_resource type="PackedScene" uid="uid://dbe1ngepffo30" path="res://Scene/plante.glb" id="2_uwoc8"]
+[gd_scene load_steps=3 format=3 uid="uid://bxi0j2nlnyu1t"]
 
 [sub_resource type="GDScript" id="GDScript_5fp4l"]
 script/source = "extends CharacterBody3D
@@ -50,9 +48,6 @@ height = 6.0
 
 [node name="Player" type="CharacterBody3D"]
 script = SubResource("GDScript_5fp4l")
-
-[node name="plante" parent="." instance=ExtResource("2_uwoc8")]
-transform = Transform3D(-0.439939, 0, 0.898028, 0, 1, 0, -0.898028, 0, -0.439939, -0.972, 0, 0)
 
 [node name="CollisionShape3D" type="CollisionShape3D" parent="."]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -0.957066, 2.7436, -0.0255573)
