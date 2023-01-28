@@ -1,14 +1,49 @@
 [gd_scene load_steps=4 format=3 uid="uid://bxi0j2nlnyu1t"]
 
-[ext_resource type="Script" path="res://Scene/player.gd" id="1_e5bhv"]
 [ext_resource type="PackedScene" uid="uid://dbe1ngepffo30" path="res://Scene/plante.glb" id="2_uwoc8"]
+
+[sub_resource type="GDScript" id="GDScript_5fp4l"]
+script/source = "extends CharacterBody3D
+
+
+@export var SPEED = 10
+var jump_velocity: float
+@export var JUMP_MAX = 8.5
+
+# Get the gravity from the project settings to be synced with RigidBody nodes.
+var gravity = ProjectSettings.get_setting(\"physics/3d/default_gravity\")
+
+
+func _physics_process(delta):
+	# Add the gravity.
+	if not is_on_floor():
+		velocity.y -= gravity * delta
+
+	# Handle Jump.
+	if Input.is_action_pressed(\"ui_accept\") and is_on_floor():
+		jump_velocity += delta * 15
+		jump_velocity = clamp(jump_velocity, 0, JUMP_MAX)
+	
+	if Input.is_action_just_released(\"ui_accept\") and is_on_floor():
+		velocity.y = jump_velocity
+		jump_velocity = 1
+		
+
+	# Get the input direction and handle the movement/deceleration.
+	# As good practice, you should replace UI actions with custom gameplay actions.
+	if is_on_floor():
+		velocity.x = move_toward(velocity.x, 0, SPEED)
+		velocity.z = move_toward(velocity.z, 0, SPEED)
+
+	move_and_slide()
+"
 
 [sub_resource type="CapsuleShape3D" id="CapsuleShape3D_r5qyu"]
 radius = 1.04191
 height = 6.0
 
 [node name="Player" type="CharacterBody3D"]
-script = ExtResource("1_e5bhv")
+script = SubResource("GDScript_5fp4l")
 
 [node name="plante" parent="." instance=ExtResource("2_uwoc8")]
 transform = Transform3D(-0.439939, 0, 0.898028, 0, 1, 0, -0.898028, 0, -0.439939, -0.972, 0, 0)
