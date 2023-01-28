@@ -1,57 +1,21 @@
-[gd_scene load_steps=8 format=3 uid="uid://bxi0j2nlnyu1t"]
+[gd_scene load_steps=4 format=3 uid="uid://bxi0j2nlnyu1t"]
 
 [ext_resource type="Script" path="res://Scene/player.gd" id="1_e5bhv"]
 [ext_resource type="PackedScene" uid="uid://dbe1ngepffo30" path="res://Scene/plante.glb" id="2_uwoc8"]
 
-[sub_resource type="CapsuleShape3D" id="CapsuleShape3D_ymo8u"]
-radius = 0.0996466
-height = 1.09917
-
-[sub_resource type="CapsuleShape3D" id="CapsuleShape3D_ggij6"]
-radius = 0.205539
-height = 2.28882
-
-[sub_resource type="CylinderShape3D" id="CylinderShape3D_lresn"]
-height = 1.27424
-radius = 0.861459
-
-[sub_resource type="SphereShape3D" id="SphereShape3D_vn1dt"]
-radius = 0.364941
-
-[sub_resource type="BoxShape3D" id="BoxShape3D_mhkjd"]
-size = Vector3(1.74028, 3.26528, 0.246677)
+[sub_resource type="CapsuleShape3D" id="CapsuleShape3D_r5qyu"]
+radius = 1.04191
+height = 6.0
 
 [node name="Player" type="CharacterBody3D"]
 script = ExtResource("1_e5bhv")
 
-[node name="CollisionShape3D" type="CollisionShape3D" parent="."]
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -0.472091, 0.518436, -0.00225875)
-shape = SubResource("CapsuleShape3D_ymo8u")
-
-[node name="CollisionShape3D2" type="CollisionShape3D" parent="."]
-transform = Transform3D(0.5, 0, 0, 0, 0.5, 0, 0, 0, 0.5, 0.429344, 0.546994, 0.000814185)
-shape = SubResource("CapsuleShape3D_ggij6")
-
-[node name="CollisionShape3D3" type="CollisionShape3D" parent="."]
-transform = Transform3D(1.242, 0, 0, 0, 1.242, 0, 0, 0, 1.242, 0, 1.82208, 0)
-shape = SubResource("CylinderShape3D_lresn")
-
-[node name="CollisionShape3D4" type="CollisionShape3D" parent="."]
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -0.12528, 4.70152, 0.0869229)
-shape = SubResource("SphereShape3D_vn1dt")
-
-[node name="CollisionShape3D5" type="CollisionShape3D" parent="."]
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -0.119765, 3.96002, 0.06988)
-shape = SubResource("BoxShape3D_mhkjd")
-
 [node name="plante" parent="." instance=ExtResource("2_uwoc8")]
 transform = Transform3D(-0.439939, 0, 0.898028, 0, 1, 0, -0.898028, 0, -0.439939, -0.972, 0, 0)
 
+[node name="CollisionShape3D" type="CollisionShape3D" parent="."]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -0.957066, 2.7436, -0.0255573)
+shape = SubResource("CapsuleShape3D_r5qyu")
+
 [node name="Camera3D" type="Camera3D" parent="."]
 transform = Transform3D(0.978148, 0, -0.207912, 0, 1, 0, 0.207912, 0, 0.978148, 2, 4, 9)
-
-[node name="SpotLight3D" type="SpotLight3D" parent="."]
-transform = Transform3D(0.9982, 0.035985, -0.0479763, -0.00118786, 0.811684, 0.584095, 0.0599603, -0.582987, 0.810266, -1.44652, 6.23369, 3.5998)
-light_energy = 8.456
-spot_range = 4.71265
-spot_angle = 36.6723
