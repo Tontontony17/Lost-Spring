@@ -1,0 +1,7 @@
+[gd_scene load_steps=2 format=3 uid="uid://begg7svdpigqx"]
+
+[ext_resource type="Texture2D" uid="uid://dmx60r2rfrena" path="res://Sprite/Goutte.png" id="1_2joj1"]
+
+[node name="Sprite3D" type="Sprite3D"]
+transform = Transform3D(0.0537859, 0, 0, 0, 0.0487942, 0, 0, 0, 0.765643, 0.34645, 0.476804, 0)
+texture = ExtResource("1_2joj1")

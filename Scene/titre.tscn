@@ -1,0 +1,63 @@
+[gd_scene load_steps=6 format=3 uid="uid://bc0msa4oqfla8"]
+
+[ext_resource type="Script" path="res://Titre.gd" id="1_3prhl"]
+[ext_resource type="Texture2D" uid="uid://cy0iwvvrh7dw2" path="res://Sprite/image.png" id="2_6sh8i"]
+
+[sub_resource type="Animation" id="Animation_kukgt"]
+resource_name = "titre"
+tracks/0/type = "value"
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/path = NodePath("ColorRect:color")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/keys = {
+"times": PackedFloat32Array(0, 1),
+"transitions": PackedFloat32Array(1, 1),
+"update": 0,
+"values": [Color(0.0588235, 0.164706, 0.301961, 1), Color(0.0588235, 0.164706, 0.301961, 0)]
+}
+
+[sub_resource type="Animation" id="Animation_yhvuo"]
+length = 0.001
+tracks/0/type = "value"
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/path = NodePath("ColorRect:color")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 0,
+"values": [Color(0.0588235, 0.164706, 0.301961, 1)]
+}
+
+[sub_resource type="AnimationLibrary" id="AnimationLibrary_8tldj"]
+_data = {
+"RESET": SubResource("Animation_yhvuo"),
+"titre": SubResource("Animation_kukgt")
+}
+
+[node name="Titre" type="Node2D"]
+script = ExtResource("1_3prhl")
+
+[node name="Camera2D" type="Camera2D" parent="."]
+current = true
+
+[node name="Sprite2D" type="Sprite2D" parent="."]
+position = Vector2(0.25, 0)
+scale = Vector2(1.00043, 1)
+texture = ExtResource("2_6sh8i")
+
+[node name="ColorRect" type="ColorRect" parent="."]
+offset_left = -580.0
+offset_top = -324.0
+offset_right = 580.0
+offset_bottom = 327.0
+color = Color(0.0588235, 0.164706, 0.301961, 1)
+
+[node name="AnimationPlayer" type="AnimationPlayer" parent="."]
+libraries = {
+"": SubResource("AnimationLibrary_8tldj")
+}

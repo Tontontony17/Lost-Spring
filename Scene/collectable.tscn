@@ -1,0 +1,23 @@
+[gd_scene load_steps=4 format=3 uid="uid://ddtbhil28gcgw"]
+
+[ext_resource type="Script" path="res://Scene/collectable.gd" id="1_ay2qf"]
+[ext_resource type="PackedScene" uid="uid://d17i6g6c1876b" path="res://FBX/Collectible1.fbx" id="1_xaqy2"]
+
+[sub_resource type="CapsuleShape3D" id="CapsuleShape3D_6j11l"]
+radius = 1.42886
+height = 4.44912
+
+[node name="collectable" type="Area3D"]
+script = ExtResource("1_ay2qf")
+
+[node name="Collectible1" parent="." instance=ExtResource("1_xaqy2")]
+
+[node name="CollisionShape3D" type="CollisionShape3D" parent="."]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0.389391, 0)
+shape = SubResource("CapsuleShape3D_6j11l")
+
+[node name="CollisionShape3D2" type="CollisionShape3D" parent="."]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0.389391, 0)
+shape = SubResource("CapsuleShape3D_6j11l")
+
+[node name="AnimatableBody3D" type="AnimatableBody3D" parent="."]

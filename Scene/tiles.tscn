@@ -1,4 +1,6 @@
-[gd_scene load_steps=3 format=3 uid="uid://dyc0c7fws80l5"]
+[gd_scene load_steps=4 format=3 uid="uid://dyc0c7fws80l5"]
+
+[ext_resource type="PackedScene" uid="uid://u8x80fvpsghr" path="res://FBX/terrain boue.fbx" id="1_uuvn7"]
 
 [sub_resource type="BoxMesh" id="BoxMesh_cj2ur"]
 
@@ -7,6 +9,10 @@ data = PackedVector3Array(-0.5, 0.5, 0.5, 0.5, 0.5, 0.5, -0.5, -0.5, 0.5, 0.5, 0
 
 [node name="Tiles" type="Node3D"]
 transform = Transform3D(2, 0, 0, 0, 2, 0, 0, 0, 2, 0, 0, 0)
+
+[node name="terrain boue" parent="." instance=ExtResource("1_uuvn7")]
+transform = Transform3D(0.026, 0, 0, 0, 0.041, 0, 0, 0, 0.031, 0.227183, 0.501496, 0.5)
+top_level = true
 
 [node name="MeshInstance3D" type="MeshInstance3D" parent="."]
 mesh = SubResource("BoxMesh_cj2ur")
